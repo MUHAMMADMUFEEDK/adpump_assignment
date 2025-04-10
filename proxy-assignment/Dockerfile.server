@@ -1,0 +1,5 @@
+FROM openjdk:17-slim
+WORKDIR /app
+COPY ProxyServer.java .
+RUN javac ProxyServer.java
+CMD ["java", "ProxyServer"]
