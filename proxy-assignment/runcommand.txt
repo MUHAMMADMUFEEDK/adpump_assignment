@@ -1,0 +1,37 @@
+Docker Build: 
+
+ 
+
+docker build -f Dockerfile.server -t proxy-server . 
+
+docker build -f Dockerfile.client -t ship-proxy . 
+
+ 
+
+ 
+
+ 
+
+Run command for server: 
+
+ 
+
+docker run -d --name proxy-server -p 9000:9000 proxy-server 
+
+ 
+
+Run command for client (server connection) 
+
+docker run -d --name ship-proxy -p 8080:8080 --link proxy-server ship-proxy 
+
+ 
+
+ 
+
+ 
+
+Curl command: 
+
+curl -x http://localhost:8080 http://httpforever.com/ 
+
+curl.exe -x http://localhost:8080 http://httpforever.com/ 
